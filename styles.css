@@ -600,3 +600,5 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
 
 /* CTA band reuse for the book page */
 .cta-band { text-align: center; }
+/* when the band follows the Book page's light ground, close the gap */
+.book-main + .cta-band { margin-top: 0; }
