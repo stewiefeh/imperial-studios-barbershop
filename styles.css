@@ -275,8 +275,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
 }
 .li-name { flex: none; font-weight: 500; }
 .li-name em { display: block; font-style: italic; font-weight: 300; font-size: .85em; color: #6b6754; }
-.ledger li::after { content: ""; flex: 1; border-bottom: 1px dotted rgba(12,13,10,.35); translate: 0 -.35em; }
-.li-price { flex: none; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ledger li::before { content: ""; order: 1; flex: 1; border-bottom: 1px dotted rgba(12,13,10,.35); translate: 0 -.35em; }
+.li-price { order: 2; flex: none; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
 .li-price i { display: block; font-style: normal; font-weight: 300; font-size: .8em; color: #6b6754; }
 .menu-note { margin-top: 1.6rem; font-size: .9em; color: #4c4a3e; }
 .menu-note a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--gold-deep); }

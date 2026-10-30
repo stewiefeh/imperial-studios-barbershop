@@ -50,7 +50,7 @@
 
   /* Count-up on the review stat, respecting reduced motion */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var stat = document.querySelector(".stat-plus");
+  var stat = document.querySelector(".stat-num");
   if (stat && !reduce) {
     var target = 430;
     var t0 = null;
@@ -59,10 +59,10 @@
       if (!t0) t0 = ts;
       var p = Math.min((ts - t0) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      stat.textContent = "+" + Math.round(eased * target);
+      stat.textContent = Math.round(eased * target);
       if (p < 1) requestAnimationFrame(step);
     }
-    stat.textContent = "+0";
+    stat.textContent = "0";
     var io = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
         requestAnimationFrame(step);
