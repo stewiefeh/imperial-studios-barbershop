@@ -148,13 +148,26 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
   font-size: clamp(2.5rem, 13vw, 10.5rem);
   line-height: .95;
   letter-spacing: .06em;
-  background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold) 22%, var(--gold-bright) 40%, #fdf6dd 50%, var(--gold-bright) 60%, var(--gold) 78%, var(--gold-deep) 100%);
-  background-size: 200% 100%;
+  position: relative;
+  text-shadow: 0 3px 30px rgba(208, 169, 92, .22);
+}
+.w-letter { display: inline-block; }
+.w-letter:nth-child(1), .w-letter:nth-child(8) { color: #a5813d; }
+.w-letter:nth-child(2), .w-letter:nth-child(7) { color: #c49d52; }
+.w-letter:nth-child(3), .w-letter:nth-child(6) { color: #dab870; }
+.w-letter:nth-child(4), .w-letter:nth-child(5) { color: #eed79b; }
+.wordmark::after {
+  content: "IMPERIAL";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, rgba(255,250,232,0) 40%, rgba(255,250,232,.92) 49%, rgba(255,250,232,0) 58%);
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.w-letter { display: inline-block; }
 .hero-sub {
   margin-top: .4rem;
   font-family: var(--display);
@@ -412,7 +425,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
   .hero-actions { animation-delay: 1.45s; }
   .hero-stats { animation-delay: 1.6s; }
   .hero-scroll { animation-delay: 2s; }
-  .wordmark { animation: sheen 9s linear 2.2s infinite; }
+  .wordmark::after { animation: sheen 9s linear 2.4s infinite; }
   .hero-scroll-nub { animation: nub 1.8s var(--ease-inout) infinite; }
   .ticker-row { animation: ticker 34s linear infinite; }
   .ticker:hover .ticker-row { animation-play-state: paused; }
@@ -420,9 +433,9 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
   @keyframes letter-rise { to { opacity: 1; transform: translateY(0); } }
   @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
   @keyframes sheen {
-    0% { background-position-x: 110%; }
-    14% { background-position-x: -10%; }
-    100% { background-position-x: -10%; }
+    0% { background-position-x: -70%; }
+    18% { background-position-x: 100%; }
+    100% { background-position-x: 100%; }
   }
   @keyframes nub { 0% { top: -40%; } 55% { top: 100%; } 100% { top: 100%; } }
   @keyframes ticker { to { transform: translateX(-50%); } }
