@@ -77,6 +77,15 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
 .btn-small { padding: .6em 1.3em; font-size: .78rem; }
 .btn-ink { background: var(--ink); border-color: var(--ink); color: var(--gold-bright); box-shadow: 0 10px 28px rgba(12,13,10,.32); }
 .btn-ink:hover { background: #000; transform: translateY(-2px); }
+.btn-lg { font-size: 1.04rem; padding: 1.1em 2.6em; letter-spacing: .12em; animation: btn-glow 3.4s var(--ease-out) infinite; }
+.btn-lg:hover { animation-play-state: paused; }
+@keyframes btn-glow {
+  0%, 100% { box-shadow: 0 12px 36px rgba(12,13,10,.35); }
+  50%      { box-shadow: 0 12px 36px rgba(12,13,10,.35), 0 0 38px rgba(239,223,174,.7); }
+}
+.band-alt { margin-top: 1.5rem; font-style: italic; font-size: .98em; opacity: .92; }
+.band-alt a { font-weight: 600; color: inherit; text-underline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .btn-lg { animation: none; } }
 .btn-ink-ghost { color: var(--ink); border-color: rgba(12,13,10,.55); }
 .btn-ink-ghost:hover { background: rgba(12,13,10,.08); transform: translateY(-2px); }
 
@@ -388,15 +397,17 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
 /* ── CTA band ────────────────────────────────────────── */
 .cta-band {
   margin-top: clamp(4.5rem, 10vw, 8rem);
-  background: linear-gradient(115deg, var(--gold-deep), var(--gold) 45%, var(--gold-bright));
+  background:
+    radial-gradient(90% 130% at 50% 135%, rgba(255,252,240,.38), rgba(255,252,240,0) 55%),
+    linear-gradient(115deg, var(--gold-deep), var(--gold) 45%, var(--gold-bright));
   color: var(--ink);
   text-align: center;
-  padding: clamp(4rem, 9vw, 7rem) 1.5rem;
+  padding: clamp(4.5rem, 10vw, 8rem) 1.5rem;
 }
 .band-crest { color: var(--ink); opacity: .8; }
 .cta-band h2 { font-size: clamp(2.2rem, 6vw, 4rem); letter-spacing: .08em; margin-top: 1.2rem; }
 .cta-band p { margin-top: .6rem; font-style: italic; font-size: 1.1em; }
-.cta-band .hero-actions { margin-top: 2.4rem; }
+.cta-band .hero-actions { margin-top: 2.6rem; }
 
 /* ── Footer ──────────────────────────────────────────── */
 .site-foot { background: var(--ink-2); border-top: 1px solid var(--gold-line-soft); padding: 3.5rem 0 2rem; }
@@ -582,10 +593,10 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; }
 }
 .svc .ledger li { font-size: .95em; }
 
-.book-footnote { margin-top: 2.2rem; font-size: .9em; color: #4c4a3e; }
+.book-footnote { margin-top: 2.4rem; font-size: .95em; color: #3f3d33; }
 .book-footnote a { color: var(--gold-deep); font-weight: 600; text-underline-offset: 4px; text-decoration-thickness: 2px; }
-.book-cta-row { margin-top: 1.6rem; }
-.book-cta-row .btn { font-size: .95rem; padding: .9em 1.8em; }
+/* footnote centered so the eye lands on it before the band */
+.book-footnote { max-width: 34em; margin-left: auto; margin-right: auto; text-align: center; }
 
 /* CTA band reuse for the book page */
 .cta-band { text-align: center; }
